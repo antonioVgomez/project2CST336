@@ -1,0 +1,26 @@
+legend{
+    font-family: 'Atomic Age', cursive;
+}
+fieldset{
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+}
+#zip-code-error-msg{
+    color:red;
+    border-style: dashed;
+}
+
+body{ 
+  background: url("/Ajax/images/Background.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.carousel {
+  width:640px;
+  height:360px;
+  margin: auto;
+  padding: 10px;
+}

@@ -26,6 +26,18 @@ $i = 0;
  */
 $i++;
 /* Authentication type */
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+/* Server parameters */
+$cfg['Servers'][$i]['host'] = 'localhost';
+$cfg['Servers'][$i]['compress'] = false;
+$cfg['Servers'][$i]['AllowNoPassword'] = false;
+
+
+ /**
+ * Heroku server
+ */
+$i++;
+/* Authentication type */
 $cfg['Servers'][$i]['auth_type'] = 'config';
 /* Server parameters */
 $cfg['Servers'][$i]['host'] = 'us-cdbr-iron-east-05.cleardb.net';
@@ -33,6 +45,7 @@ $cfg['Servers'][$i]['user'] = 'bfeaad637110cb';
 $cfg['Servers'][$i]['password'] = 'c0419d9c';
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
+
 
 /**
  * phpMyAdmin configuration storage settings.
