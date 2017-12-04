@@ -6,7 +6,7 @@ function getDatabaseConnection() {
     $host = "us-cdbr-iron-east-05.cleardb.net";
     $username = "bfeaad637110cb";
     $password = "c0419d9c";
-    $dbname = "heroku_3d24ca78bc82e88"; 
+    $dbname = "heroku_303da836d19345a"; 
     
     // Create connection
     $dbConn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
