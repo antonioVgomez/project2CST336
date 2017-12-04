@@ -1,0 +1,7 @@
+[04-Dec-2017 21:10:03 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1044] Access denied for user 'bfeaad637110cb'@'%' to database 'heroku_3d24ca78bc82e88'' in /home/ubuntu/workspace/Ajax/api.php:12
+Stack trace:
+#0 /home/ubuntu/workspace/Ajax/api.php(12): PDO->__construct('mysql:host=us-c...', 'bfeaad637110cb', 'c0419d9c')
+#1 /home/ubuntu/workspace/Ajax/api.php(25): getDatabaseConnection()
+#2 /home/ubuntu/workspace/Ajax/api.php(46): getUsersThatMatchUserName()
+#3 {main}
+  thrown in /home/ubuntu/workspace/Ajax/api.php on line 12

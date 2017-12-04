@@ -24,7 +24,7 @@ function getUsersThatMatchUserName() {
     
      $dbConn = getDatabaseConnection(); 
 
-     $sql = "SELECT * from User WHERE username='$username'"; 
+     $sql = "SELECT * from user WHERE username='$username'"; 
      
      $statement = $dbConn->prepare($sql); 
     
