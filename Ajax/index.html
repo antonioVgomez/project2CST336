@@ -64,7 +64,22 @@
             });
         }
         
-        
+        function validatePassword(){
+           console.log("In validatePassword...."); 
+               $('#password-valid').html("");
+              if ($('#password1').val() !== $('#password2').val()) {
+                 $('#password-valid').html("Passwords do not match");
+                 
+              } 
+              
+              else if ($('#password1').val().length <= 8) {
+                      $('#password-valid').html("not long enough");
+                    } else {
+                         $('#password-valid').html("long enough");
+                    }
+            
+        }
+       
         function validateUsername() {
                     
             $.ajax({
@@ -97,7 +112,7 @@
 
 <body id="dummybodyid">
 
-    <form onsubmit="return false;">
+    <form onsubmit="validatePassword();return false;">
         <fieldset>
            <legend>Sign Up</legend>
             First Name:  <input type="text"><br> 
@@ -121,9 +136,10 @@
             Select a County: <select id="county-list"></select><br>
             
             Desired Username: <input onchange="validateUsername();" id='username' type="text"> <span id="username-valid"></span></span><br>
-            Password: <input type="password"><br>
-            Type Password Again: <input type="password"><br>
+            Password: <input id='password1' type="password"> <span id="password-valid"></span> <br>
+            Type Password Again: <input id='password2' type="password"><br>
               <input type="submit" class="btn btn-info" value="Sign Up">
+              <input type="submit" class="btn btn-info" value="login">
         </fieldset>
     </form>
        

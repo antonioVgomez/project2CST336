@@ -1,0 +1,15 @@
+This is tailored to be a place where if someone wanted to know about certain athletes from various time periods they could.
+I tried to present a simple display and easy to use UI that wasnt all over the place.
+Users can read what I used to make this site. They will also presented some links for references and alos learn about some athletes.
+Users should be able to go over certain athletes without refreshing the page. I even add the youtube api to see if I know to use it right on top of my own.
+I explored some features I didnt learn in class like pop over bootstrap and  adding images to my db.
+
+
+
+From an admins perspective I was looking to do a type of wikipedia page.
+Where someone would be able to come in and add athletes as they want or update the
+information on current athletes in the database. Additionaly admins can delete users something 
+I wish I could have gotten to in time but I just found that task quite hard.
+
+
+E/R diagram:

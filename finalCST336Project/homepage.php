@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/finalCST336Project/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -23,10 +24,10 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/finalCST336Project/Athletes.html">Athletes</a></li>
-        <li><a href="#band">About Me</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="/finalCST336Project/login.php">Athletes</a></li>
       </ul>
+    
+        
     </div>
   </div>
 </nav>
@@ -115,15 +116,31 @@
     <div id="menu1" class="tab-pane fade">
       <h2>Tech used </h2>
       <p>The Site was made up with various languages all working together to provide a responsive and cool site</p>
-      <p>PHP, AJAX, Javascript, Bootstrap, HTML</p>
+      <p>PHP, AJAX, Javascript, Bootstrap, HTML and SQL</p>
     </div>
+ 
+    
+    
     <div id="menu2" class="tab-pane fade">
       <h2>References</h2>
-      <p></p>
+      <p>W3schools</p>
+      <p>http://www.webslesson.info/2016/03/ajax-live-data-search-using-jquery-php-mysql.html</p>
+      <p>Lab 6 and some other assignmens</p>
     </div>
   </div>
 </div>
-
+     <div class="container">
+   <br />
+   <h2 align="center">look up an athlete</h2><br />
+   <div class="form-group">
+    <div class="input-group">
+     <span class="input-group-addon">Search</span>
+     <input type="text" name="search_text" id="search_text" placeholder="Search by " class="form-control" />
+    </div>
+   </div>
+   <br />
+   <div id="result"></div>
+  </div>
 </body>
 
 
@@ -134,3 +151,34 @@
   <!-- /.container -->
 </footer>
 </html>
+
+<script>
+$(document).ready(function(){
+
+ load_data();
+
+ function load_data(query)
+ {
+  $.ajax({
+   url:"search.php",
+   method:"POST",
+   data:{query:query},
+   success:function(data)
+   {
+    $('#result').html(data);
+   }
+  });
+ }
+ $('#search_text').keyup(function(){
+  var search = $(this).val();
+  if(search != '')
+  {
+   load_data(search);
+  }
+  else
+  {
+   load_data();
+  }
+ });
+});
+</script>
