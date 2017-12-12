@@ -58,7 +58,7 @@ if (isset($_GET['addUser'])) {  //the add form has been submitted
             <br>
             <form action="adminOnly.php">
                 
-                <input type="submit" value="Home" />
+                <input type="submit" value="Back" />
                 
             </form>
         </div>
