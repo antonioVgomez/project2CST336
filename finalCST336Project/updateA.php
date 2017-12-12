@@ -29,7 +29,7 @@ if (isset($_GET['addUser'])) {  //the add form has been submitted
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Admin: Add new user</title>
+        <title>Admin: Update Athlete</title>
         <style>
             @import url("css/styles.css");
         </style>
