@@ -60,7 +60,7 @@ function getUserInfo() {
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Update User </title>
+        <title> Update Athlete </title>
         <style>
             @import url("css/styles.css");
         </style>
