@@ -53,7 +53,7 @@ if (isset($_GET['addUser'])) {  //the add form has been submitted
                 SPORT: <input type ="text" name= "sports"/>
                 <br />
                
-                <input type="submit" value="Add User" name="addUser">
+                <input type="submit" value="Update Athlete" name="addUser">
             </form>
             <br>
             <form action="adminOnly.php">
