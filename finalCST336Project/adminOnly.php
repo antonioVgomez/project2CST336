@@ -66,6 +66,13 @@ function userList(){
                 <input type="submit" value="Log out" />
                 
             </form>
+             <br />
+                
+             <form action="Athletes.php">
+                
+                <input type="submit" value="Back to Athletes Page" />
+                
+            </form>   
             </div>
             
             <?php
