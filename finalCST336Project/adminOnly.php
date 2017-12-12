@@ -34,7 +34,7 @@ function userList(){
         <title>Admin Main Page </title>
         
         <style>
-        @import url("css/styles.css");
+        @import url("styles.css");
         </style>
         
         <script>

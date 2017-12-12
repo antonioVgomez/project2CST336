@@ -2,18 +2,20 @@
 include 'dbconnect.php';
 $conn = getDatabaseConnection();
 if (isset($_GET['addUser'])) {  //the add form has been submitted
-    $sql = "INSERT INTO athlete (`id`, `name`, `dob`, `age`, `born`, `sport`,)
-             (:id, :fname, dOB, :Ages, :borns, :sports)";
+    $sql = "INSERT INTO athlete
+             (id, name, dob, age, born, sports) 
+             VALUES
+             (:athleteID, :fName, :dOB,:years, :bornIn, :sports)";
     $np = array();
     
     //echo "$sql";
     
-    $np[':id'] = $_GET['id'];
-    $np[':fname'] = $_GET['name'];
+    $np[':athleteID'] = $_GET['id'];
+    $np['fName'] = $_GET['name'];
     $np[':dOB'] = $_GET['dob'];
-    $np[':Ages'] = $_GET['age'];
-    $np[':borns'] = $_GET['born'];
-    $np[':sports'] = $_GET['sport'];
+    $np[':years'] = $_GET['age'];
+    $np[':bornIn'] = $_GET['born'];
+    $np[':sports'] = $_GET['sports'];
     
     $stmt=$conn->prepare($sql);
     $stmt->execute($np);
@@ -34,23 +36,23 @@ if (isset($_GET['addUser'])) {  //the add form has been submitted
     </head>
     <body>
 
-            <h1> Tech Checkout System: Adding a New User </h1>
+            <h1> Update Athlete </h1>
             <br>
             <div id="box">
             <form method="GET">
-                ID:<input type="text" name="id" />
+               ID:<input type="number" name="id" />
                 <br />
-                Full name:<input type="text" name="fullname"/>
+                Full name:<input type="text" name="name"/>
                 <br/>
-                DOB: <input type= "text" name ="dob"/>
+                DOB: <input type= "text" name ="dOB"/>
                 <br/>
-                AGE: <input type ="text" name= "age"/>
+                AGE: <input type ="number" name= "years"/>
                 <br />
-                BORN: <input type ="text" name= "born"/>
+                BORN IN: <input type ="text" name= "bornIn"/>
                 <br />
                 SPORT: <input type ="text" name= "sports"/>
                 <br />
-              
+               
                 <input type="submit" value="Add User" name="addUser">
             </form>
             <br>
@@ -61,4 +63,4 @@ if (isset($_GET['addUser'])) {  //the add form has been submitted
             </form>
         </div>
     </body>
-</html>
+</html
