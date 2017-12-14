@@ -1,32 +1,24 @@
 <?php
 session_start();
-    if (!isset($_SESSION['username'])) {
-        
-        header("Location: login.php");
-        
-    }
-    include 'dbconnect.php';
-    $conn = getDatabaseConnection();
-  
-function getUserInfo() {
+
+if(!isset($_SESSION['username'])) {
+    header("Location: adminOnly.php");
+}
+
+include 'dbconnect.php';
+$conn = getDatabaseConnection();
+
+function getAthleteInfo() {
     global $conn;
-    
-    $sql = "SELECT * 
-            FROM athlete
-            WHERE id = " . $_GET['userId']; 
-    
+    $sql = "SELECT * FROM athletes WHERE id=".$_GET['id'];
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $record = $stmt->fetch(PDO::FETCH_ASSOC);
-    //print_r($record);
-    
     return $record;
 }
- if (isset($_GET['updateUser'])) { //checks whether admin has submitted form.
-     
-     //echo "Form has been submitted!";
-     
-     $sql = "UPDATE athlete
+
+if(isset($_GET['updateAthlete'])) {
+    $sql = "UPDATE athlete
              SET name = :fName,
                  dob  = :dOB,
                  age = :years,
@@ -40,22 +32,21 @@ function getUserInfo() {
     $np[':years'] = $_GET['age'];
     $np[':bornIn'] = $_GET['born'];
     $np[':sports'] = $_GET['sports'];
-    $np[':id'] = $_GET['userId'];  
+    $np[':id'] = $_GET['id'];  
      
      $stmt = $conn->prepare($sql);
      $stmt->execute($np);
      
-     echo "<div id='box'> Record has been updated! </div>";
+     echo " Record has been updated!";
+}
+
+ if (isset($_GET['id'])) {
      
- }
- if (isset($_GET['userId'])) {
-     
-    $userInfo = getUserInfo(); 
+    $athleteInfo = getAthleteInfo(); 
      
      
  }
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -67,35 +58,31 @@ function getUserInfo() {
     </head>
     <body>
 
-        <h1> Adding a New Athlete </h1>
+        <h1> Update Athlete </h1>
             <br>
             <div id="box">
             <form method="GET">
-               ID:<input type="number" name="id" />
+               ID:<input type="number" name="id" value="<?= $athleteInfo ['id']?>" />
                 <br />
-                Full name:<input type="text" name="name"/>
+                Full name:<input type="text" name="fname" value="<?= $athleteInfo ['name']?>"/>
                 <br/>
-                DOB: <input type= "text" name ="dOB"/>
+                DOB: <input type= "text" name ="dOB" value="<?= $athleteInfo ['dob']?>"/>
                 <br/>
-                AGE: <input type ="number" name= "years"/>
+                AGE: <input type ="number" name= "years" value="<?= $athleteInfo ['age']?>"/>
                 <br />
-                BORN IN: <input type ="text" name= "bornIn"/>
+                BORN IN: <input type ="text" name= "bornIn" value="<?= $athleteInfo ['born']?>"/>
                 <br />
-                SPORT: <input type ="text" name= "sports"/>
+                SPORT: <input type ="text" name= "sports" value="<?= $athleteInfo ['sport']?>"/>
                 <br />
                
-                <input type="submit" value="Add User" name="addUser">
+                <input type="submit" value="update athlete" name="updateAthlete">
             </form>
             <br>
             <form action="adminOnly.php">
-            <input type="submit" value="Update User" name="updateUser">
+            <input type="submit" value="back" name="updateUser">
         </form>
         <br>
-        <form action="homepage.php">
-                
-                <input type="submit" value="Home" />
-                
-            </form>
+        
         </div>
     </body>
 </html>
