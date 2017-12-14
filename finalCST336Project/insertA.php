@@ -79,7 +79,7 @@ if(isset($_GET['updateAthlete'])) {
             </form>
             <br>
             <form action="adminOnly.php">
-            <input type="submit" value="back" name="updateUser">
+            <input type="submit" value="back" >
         </form>
         <br>
         
